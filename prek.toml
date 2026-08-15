@@ -16,6 +16,13 @@ hooks = [
 repo = "local"
 
 [[repos.hooks]]
+id = "shellcheck"
+name = "shellcheck"
+language = "system"
+entry = "shellcheck"
+files = '\.sh$'
+
+[[repos.hooks]]
 id = "stylua"
 name = "stylua"
 language = "system"
