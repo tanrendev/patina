@@ -8,3 +8,8 @@ description = "One wallpaper per theme mode, applied on mode change."
 plugin_api = 9
 tags = ["wallpaper", "theme"]
 dependencies = []
+
+[[plugin.release]]
+plugin_api = 9
+version = "0.1.0"
+rev = "909d82e899af78e1a44eccb40517217b9b619597"
