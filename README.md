@@ -1,6 +1,6 @@
 # patina
 
-Noctalia plugin: one wallpaper per theme mode, applied on mode change.
+Noctalia plugin that switches wallpaper with light/dark mode.
 
 ![Wallpaper swap on theme change](demo.webp)
 
