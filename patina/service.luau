@@ -1,4 +1,4 @@
-noctalia.setUpdateInterval(1000)
+noctalia.setUpdateInterval(500)
 
 local lastPath
 
