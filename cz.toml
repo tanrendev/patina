@@ -1,0 +1,5 @@
+[tool.commitizen]
+version = "0.0.0"
+tag_format = "v$version"
+bump_message = "chore: release $new_version"
+version_files = ["patina/plugin.toml:^version"]
