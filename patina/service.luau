@@ -1,15 +1,11 @@
 noctalia.setUpdateInterval(1000)
 
-local lastDark = noctalia.isDarkMode()
+local lastPath
 
 function update()
-  local dark = noctalia.isDarkMode()
-  if dark == lastDark then
-    return
-  end
-  lastDark = dark
-  local path = noctalia.getConfig(dark and "dark" or "light")
-  if type(path) == "string" and path ~= "" then
+  local path = noctalia.getConfig(noctalia.isDarkMode() and "dark" or "light")
+  if path ~= "" and path ~= lastPath then
+    lastPath = path
     noctalia.setWallpaper(path)
   end
 end
