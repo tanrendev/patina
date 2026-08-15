@@ -1,0 +1,10 @@
+[[plugin]]
+id = "tanren/patina"
+name = "Patina"
+author = "tanren"
+license = "MIT"
+icon = "sun-moon"
+description = "One wallpaper per theme mode, applied on mode change."
+plugin_api = 9
+tags = ["wallpaper", "theme"]
+dependencies = []
