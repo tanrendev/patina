@@ -1,0 +1,7 @@
+rules:
+  artipacked:
+    ignore:
+      - release.yaml
+  undocumented-permissions:
+    ignore:
+      - release.yaml

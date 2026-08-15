@@ -13,6 +13,11 @@ hooks = [
 ]
 
 [[repos]]
+repo = "https://github.com/zizmorcore/zizmor-pre-commit"
+rev = "v1.29.0"
+hooks = [{ id = "zizmor", args = ["--no-progress", "--persona=pedantic"] }]
+
+[[repos]]
 repo = "local"
 
 [[repos.hooks]]
