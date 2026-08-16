@@ -1,6 +1,7 @@
 [[plugin]]
 id = "tanren/patina"
 name = "Patina"
+version = "0.1.0"
 author = "tanren"
 license = "MIT"
 icon = "sun-moon"
