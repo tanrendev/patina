@@ -5,7 +5,7 @@ plugin_api = 9
 author = "tanren"
 license = "MIT"
 dependencies = []
-tags = ["wallpaper", "theme"]
+tags = ["wallpaper", "theming", "service"]
 icon = "sun-moon"
 description = "One wallpaper per theme mode, applied on mode change."
 

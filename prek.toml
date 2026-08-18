@@ -6,19 +6,39 @@ hooks = [
   { id = "check-toml" },
   { id = "check-json" },
   { id = "check-yaml" },
-  { id = "check-added-large-files", args = ["--maxkb=6144"] },
+  { id = "check-added-large-files", args = ["--maxkb=1024"] },
   { id = "check-merge-conflict" },
   { id = "check-case-conflict" },
+  { id = "check-symlinks" },
   { id = "mixed-line-ending" },
 ]
 
 [[repos]]
-repo = "https://github.com/zizmorcore/zizmor-pre-commit"
-rev = "v1.29.0"
-hooks = [{ id = "zizmor", args = ["--no-progress", "--persona=pedantic"] }]
-
-[[repos]]
 repo = "local"
+
+[[repos.hooks]]
+id = "stylua"
+name = "stylua"
+language = "system"
+entry = "stylua --check"
+files = '\.luau$'
+exclude = '\.d\.luau$'
+
+[[repos.hooks]]
+id = "luau-analyze"
+name = "luau-analyze"
+language = "system"
+entry = "luau-lsp analyze --definitions=noctalia.d.luau --base-luaurc=.luaurc"
+files = '\.luau$'
+exclude = '\.d\.luau$'
+
+[[repos.hooks]]
+id = "noctalia-validate"
+name = "noctalia-validate"
+language = "system"
+entry = "./validate.sh"
+pass_filenames = false
+always_run = true
 
 [[repos.hooks]]
 id = "shellcheck"
@@ -28,8 +48,15 @@ entry = "shellcheck"
 files = '\.sh$'
 
 [[repos.hooks]]
-id = "stylua"
-name = "stylua"
+id = "nixfmt"
+name = "nixfmt"
 language = "system"
-entry = "stylua --check"
-files = '\.luau$'
+entry = "nixfmt --check"
+files = '\.nix$'
+
+[[repos.hooks]]
+id = "zizmor"
+name = "zizmor"
+language = "system"
+entry = "zizmor --no-progress --persona=pedantic"
+files = '^\.github/workflows/'

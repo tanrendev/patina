@@ -3,10 +3,10 @@ name: release
 on:
   workflow_dispatch:
 
+permissions: {}
+
 concurrency:
   group: release
-
-permissions: {}
 
 jobs:
   release:
@@ -18,10 +18,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
-        with:
-          enable-cache: false
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          ./release.sh
+          nix develop -c ./release.sh

@@ -4,26 +4,24 @@ on:
   push:
     branches:
       - master
+  pull_request:
+  workflow_dispatch:
+
+permissions: {}
 
 concurrency:
   group: ci-${{ github.ref }}
-
-permissions: {}
+  cancel-in-progress: true
 
 jobs:
   prek:
     name: prek
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
-        with:
-          enable-cache: false
-      - run: |
-          mkdir -p "$HOME/.local/bin"
-          curl -sSLo stylua.zip https://github.com/JohnnyMorganz/StyLua/releases/download/v2.5.2/stylua-linux-x86_64.zip
-          unzip -q stylua.zip -d "$HOME/.local/bin"
-          chmod +x "$HOME/.local/bin/stylua"
-          uvx prek run --all-files
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25
+      - run: nix develop -c prek run --all-files

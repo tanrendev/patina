@@ -1,13 +1,18 @@
 # patina
 
-Noctalia plugin that switches wallpaper with light/dark mode.
+Noctalia plugin that switches wallpaper with light/dark mode. Plugin page:
+[patina/README.md](patina/README.md).
 
-## Installation
+## Install
 
     noctalia msg plugins source add patina git https://github.com/tanrendev/patina
+    noctalia msg plugins enable tanren/patina
 
-## Usage
+## Develop
 
-Enable `tanren/patina`, then pick a light and a dark wallpaper in the plugin settings.
+    noctalia msg plugins source add dev path "$PWD"
+    nix develop -c prek run --all-files
 
-![Plugin settings](settings.png)
+Layout and tooling follow
+[noctalia-plugin-template](https://github.com/tanrendev/noctalia-plugin-template).
+Releases: run the release workflow, or `nix develop -c ./release.sh`.
